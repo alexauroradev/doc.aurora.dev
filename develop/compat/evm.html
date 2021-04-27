@@ -589,17 +589,18 @@
 <h2 id="opcodes">Opcodes<a class="headerlink" href="#opcodes" title="Permanent link">¶</a></h2>
 <h3 id="blockhash"><code>BLOCKHASH</code><a class="headerlink" href="#blockhash" title="Permanent link">¶</a></h3>
 <p>This opcode currently always returns zero. This is a known limitation that
-will be remedied in a protocol upgrade in the near future.</p>
+will be remedied in a protocol upgrade in the near future.
+(See <a href="https://github.com/near/nearcore/pull/4256">nearcore#4256</a>.)</p>
 <h3 id="coinbase"><code>COINBASE</code><a class="headerlink" href="#coinbase" title="Permanent link">¶</a></h3>
 <p>This opcode returns the EVM address of the Aurora Engine.</p>
 <p>For example, for the Aurora Engine deployment on the <code>aurora</code> account,
-<code>COINBASE</code> returns 0x4444588443C3a91288c5002483449Aba1054192b.</p>
+<code>COINBASE</code> returns <em>0x4444588443C3a91288c5002483449Aba1054192b</em>.</p>
 <h3 id="difficulty"><code>DIFFICULTY</code><a class="headerlink" href="#difficulty" title="Permanent link">¶</a></h3>
 <p>This opcode always returns zero, since NEAR is not a proof-of-work (PoW)
 network.</p>
 <h3 id="gaslimit"><code>GASLIMIT</code><a class="headerlink" href="#gaslimit" title="Permanent link">¶</a></h3>
 <p>This opcode always returns
-0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+<em>0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</em>
 (2^256-1).</p>
 <h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">¶</a></h2>
 <ul>

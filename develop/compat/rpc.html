@@ -352,6 +352,11 @@
     Limitations
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#notes">
+    Notes
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -418,6 +423,11 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#limitations">
     Limitations
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#notes">
+    Notes
   </a>
 </li>
 </ul>
@@ -782,8 +792,42 @@
 <p><strong>Legend</strong>: ❌ = not supported. 🚧 = work in progress. ✅ = supported.</p>
 <h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">¶</a></h2>
 <ul>
-<li>The <code>eth_getProof</code> method (EIP-1186) is not supported and is unlikely to be
+<li>The <code>eth_getProof</code> method (<a href="https://eips.ethereum.org/EIPS/eip-1186">EIP-1186</a>) is not supported and is unlikely to be
   possible to implement.</li>
+</ul>
+<h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">¶</a></h2>
+<ul>
+<li>
+<p>For now, the <code>eth_estimateGas</code> method returns zero, since no gas is charged.</p>
+</li>
+<li>
+<p>Ethereum is a proof-of-work (PoW) network, and NEAR is a proof-of-stake (PoS)
+  network.
+  Therefore with Aurora all mining-related methods such as <code>eth_getWork</code>,
+  <code>eth_submitHashrate</code>, and <code>eth_submitWork</code> are not supported and return
+  an error code.
+  Additionally, PoW-related block metadata such as <code>nonce</code> and <code>difficulty</code>
+  contain all zeroes.</p>
+</li>
+<li>
+<p>The <code>eth_coinbase</code> method returns the EVM address of the Aurora Engine.
+  For example, for the Aurora Engine deployment on the <code>aurora</code> account,
+  <code>COINBASE</code> returns <em>0x4444588443C3a91288c5002483449Aba1054192b</em>.</p>
+</li>
+<li>
+<p>There is no concept of uncle (aka ommer) blocks.
+  The <code>eth_getUncleByBlockHashAndIndex</code> and <code>eth_getUncleByBlockNumberAndIndex</code>
+  methods always return <code>null</code>.
+  The <code>eth_getUncleCountByBlockHash</code> and <code>eth_getUncleCountByBlockNumber</code>
+  methods return zero for valid block IDs and <code>null</code> for invalid block IDs.
+  Additionally, uncle-related block metadata such as <code>sha3Uncles</code> contain
+  all zeroes.</p>
+</li>
+<li>
+<p>There is no access to pending transactions.
+  The <code>eth_newPendingTransactionFilter</code> method creates a filter that returns
+  nothing when polled with <code>eth_getFilterChanges</code>.</p>
+</li>
 </ul>
 </article>
 </div>
