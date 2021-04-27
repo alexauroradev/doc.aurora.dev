@@ -9,6 +9,8 @@ title: "Aurora: Compatibility with the EVM"
 - The Berlin hard fork is not yet supported. The EVM currently supports the
   feature set of the Istanbul hard fork.
 
+- The [`COINBASE` opcode](#coinbase) currently always returns zero.
+
 ## Precompiles
 
 ### Standard precompiles
